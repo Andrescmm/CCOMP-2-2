@@ -17,10 +17,9 @@ void Player1(char A[][7],int colum){
     char*c =(inicio+colum);
     //Ingresar la ficha
     int address[6]={35,28,21,14,7,0};
-    
         for(int i=0;i<6;i++){
             if(*(c+*(address+i))=='X'){
-                char *cambio=(c+address[i]);
+                char *cambio=(c+*(address+i));
                 swap(cambio,ficha);
             }
             else{
@@ -37,10 +36,9 @@ void Player2(char A[][7],int colum){
     char*c =(inicio+colum);
     //Ingresar la ficha
     int address[6]={35,28,21,14,7,0};
-    
         for(int i=0;i<6;i++){
             if(*(c+*(address+i))=='X'){
-                char *cambio=(c+address[i]);
+                char *cambio=(c+*(address+i));
                 swap(cambio,ficha);
             }
             else{
@@ -54,12 +52,12 @@ void Player2(char A[][7],int colum){
 void Comprobacion(char A[][7]){}
     
     
-//voy a ser millonario 
+
 
 
 void Imprimir(char A[][7]){
     for(char  i=0;i<7;i++){
-        for(char *i=*A;i<=(*A)+6;i++){
+        for(char *i=*A;i<(*A)+7;i++){
             cout<<*i<<"  ";
     }
     cout<<endl;
@@ -80,7 +78,7 @@ int main (){
                  {'X','X','X','X','X','X','X'}};
     
     
-    cout<<"CHOOSE A COLUMN FORM 1-6"<<endl;
+    cout<<"CHOOSE A COLUMN FORM 1-7"<<endl;
     cout<<"PLAYER 1 PLAYS WHIT '0'"<<endl;
     cout<<"PLAYER 2 PLAYS WHIT '1'"<<endl;
     Imprimir(A);
