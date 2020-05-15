@@ -51,16 +51,10 @@ void Player2(char A[][7],int colum){
     
     
     
+
     
     
     
-    
-
-
-
-
-
-
 
 
 
@@ -86,26 +80,35 @@ int main (){
                  {'X','X','X','X','X','X','X'},
                  {'X','X','X','X','X','X','X'}};
     
+    
+    cout<<"CHOOSE A COLUMN FORM 1-6"<<endl;
+    cout<<"PLAYER 1 PLAYS WHIT '0'"<<endl;
+    cout<<"PLAYER 2 PLAYS WHIT '1'"<<endl;
     Imprimir(A);
     
     bool juego=true;
            while(juego){
                //Turno Player 1
                int colummna1;
-               cout<<"Ingrese una Colummna"<<endl;
-               cout<<"Player 1 = ";
+               cout<<"CHOOSE A COLUMN"<<endl;
+               cout<<"PLAYER 1 = ";
                cin>>colummna1;
                Player1(A, colummna1-1);
+               cout << string(20, '\n');
                Imprimir(A);
                
                //Turno Player 2
                int (colummna2);
-               cout<<"Ingrese una Colummna"<<endl;
-               cout<<"Player 2 = ";
+               cout<<"CHOOSE A COLUMN"<<endl;
+               cout<<"PLAYER 2 = ";
                cin>>colummna2;
                Player2(A, colummna2-1);
+               cout << string(20, '\n');
                Imprimir(A);
     
+               
+               
+               
            }
     
 }
