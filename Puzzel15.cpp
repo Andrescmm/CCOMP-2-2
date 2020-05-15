@@ -26,6 +26,7 @@ void swap(int *a, int *b){
 
 void MoverDerecha(int A[][4]){
     int *ptr = nullptr;
+    int *borde= *A;
     for(int i=0;i<4;i++){
            for(int *i=*A;i<(*A)+4;i++){
                if(*i==0){
@@ -34,12 +35,17 @@ void MoverDerecha(int A[][4]){
        A++;
     }
     int *ptn=(ptr+1);
-    
+  
+    if((ptn==(borde+4))or(ptn==(borde+8))or(ptn==(borde+12))or(ptn==(borde+16))){
+        // nothing out of range
+    }
+    else{
     swap(ptr,ptn);
-     
+    }
 }
 void MoverIzquierda(int A[][4]){
     int *ptr = nullptr;
+    int *borde= *A;
     for(int i=0;i<4;i++){
            for(int *i=*A;i<(*A)+4;i++){
                if(*i==0){
@@ -49,10 +55,16 @@ void MoverIzquierda(int A[][4]){
     }
     int *ptn=(ptr-1);
     
-    swap(ptr,ptn);
+    if((ptn==(borde-1))or(ptn==(borde+3))or(ptn==(borde+7))or(ptn==(borde+11))){
+         // nothing out of range
+     }
+     else{
+     swap(ptr,ptn);
+     }
 }
 
 void MoverArriba(int A[][4]){
+    int *borde=*A;
     int *ptr = nullptr;
      for(int i=0;i<4;i++){
             for(int *i=*A;i<(*A)+4;i++){
@@ -64,11 +76,17 @@ void MoverArriba(int A[][4]){
     
   int *ptn=(ptr-4);
 
-  swap(ptr,ptn);
+if((ptn==(borde-1))or(ptn==(borde-2))or(ptn==(borde-3))or(ptn==(borde-4))){
+           // nothing out of range
+       }
+       else{
+       swap(ptr,ptn);
+       }
    
 }
 
 void MoverAbajo(int A[][4]){
+        int *borde=*A;
         int *ptr = nullptr;
          for(int i=0;i<4;i++){
                 for(int *i=*A;i<(*A)+4;i++){
@@ -80,9 +98,16 @@ void MoverAbajo(int A[][4]){
         
       int *ptn=(ptr+4);
 
-      swap(ptr,ptn);
-
+      if((ptn==(borde+16))or(ptn==(borde+17))or(ptn==(borde+18))or(ptn==(borde+19))){
+                 // nothing out of range
+             }
+             else{
+             swap(ptr,ptn);
+             }
+         
 }
+
+
 
 
 
@@ -93,7 +118,7 @@ void MoverAbajo(int A[][4]){
 void Imprimir(int A[][4]){
     for(int i=0;i<4;i++){
         for(int *i=*A;i<(*A)+4;i++){
-            cout<<*i<<" ";
+            cout<<*i<<"  ";
     }
     cout<<endl;
     A++;
@@ -102,9 +127,10 @@ void Imprimir(int A[][4]){
 
 
 int main(){
-    int A[4][4]={{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,0,14,15}};
+    int A[4][4]={{2,5,4,9},{10,6,7,3},{11,1,14,8},{0,13,15,12}};
     cout<<"W=UP  A=LEFT  D=RIGTH   S=DOWN  Z=EXIT"<<endl;
     cout<<"AFTER PRESS A KEY PRESS ENTER"<<endl;
+    cout<<"0 ACT AS A BLANK SPACE "<<endl;
     Imprimir(A);
     
      bool juego=true;
@@ -147,6 +173,7 @@ int main(){
                 cout << string(20, '\n');
                 Imprimir(A);}
             else{
+                Imprimir(A);
                 cout<<"YOU WIN!!"<<endl;
                 cout<<"GAME OVER"<<endl;
                 break;
