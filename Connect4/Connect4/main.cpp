@@ -51,8 +51,7 @@ void Player2(char A[][7],int colum){
     
     
     
-
-    
+void Comprobacion(char A[][7]){}
     
     
 
@@ -106,8 +105,6 @@ int main (){
                cout << string(20, '\n');
                Imprimir(A);
     
-               
-               
                
            }
     
