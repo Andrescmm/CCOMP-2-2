@@ -50,21 +50,51 @@ void Player2(char A[][7],int colum){
     
     
     
-void Comprobacion(char A[][7]){
+int Comprobacion(char A[][7],char pieza){
     
     //Recorrido filas
     for(char  i=0;i<6;i++){
            for(char *i=*A;i<(*A)+7;i++){
-               
-       }
+               if(*i==pieza){
+                   char *rf=i;
+                   //Derecha
+                   if((*rf==pieza)and(*(rf+1)==pieza)and(*(rf+2)==pieza)and*(rf+3)==pieza){
+                       return 1;
+                   }
+                   //Izquierda
+                   if((*rf==pieza)and(*(rf-1)==pieza)and(*(rf-2)==pieza)and*(rf-3)==pieza){
+                       return 1;
+                   }
+                   //Arriba
+                   if((*rf==pieza)and(*(rf+7)==pieza)and(*(rf+14)==pieza)and*(rf+21)==pieza){
+                       return 1;
+                   }
+                   //Diagonal Abajo Derecha
+                   if((*rf==pieza)and(*(rf+8)==pieza)and(*(rf+16)==pieza)and*(rf+24)==pieza){
+                       return 1;
+                   }
+                   //Diagonal Abajo Izquierda
+                   if((*rf==pieza)and(*(rf+6)==pieza)and(*(rf+12)==pieza)and*(rf+18)==pieza){
+                       return 1;
+                   }
+                   //Diagonal Arriba Izquierda
+                   if((*rf==pieza)and(*(rf-8)==pieza)and(*(rf-16)==pieza)and*(rf-24)==pieza){
+                       return 1;
+                   }
+                   //Diagonal Arriba Derecha
+                   if((*rf==pieza)and(*(rf-6)==pieza)and(*(rf-12)==pieza)and*(rf-18)==pieza){
+                       return 1;
+                   }
+               }
+         }
        A++;
-      }
+     }
     
     
     
     
     
-    
+    return 0;
 }
     
     
@@ -102,25 +132,56 @@ int main (){
     
     bool juego=true;
            while(juego){
-               //Turno Player 1
-               int colummna1;
-               cout<<"CHOOSE A COLUMN"<<endl;
-               cout<<"PLAYER 1 = ";
-               cin>>colummna1;
-               Player1(A, colummna1-1);
-               cout << string(20, '\n');
-               Imprimir(A);
                
-               //Turno Player 2
-               int (colummna2);
-               cout<<"CHOOSE A COLUMN"<<endl;
-               cout<<"PLAYER 2 = ";
-               cin>>colummna2;
-               Player2(A, colummna2-1);
-               cout << string(20, '\n');
-               Imprimir(A);
     
+              
+                   
+                   int colummna1;
+                   cout<<"CHOOSE A COLUMN"<<endl;
+                   cout<<"PLAYER 1 = ";
+                   cin>>colummna1;
+                   Player1(A, colummna1-1);
+                   cout << string(20, '\n');
+                   Imprimir(A);
+                   
+                 int win1=Comprobacion(A,'0');
+                   if(win1==0){
+                        //Keep running
+                      }
+                   else{
+                       cout << string(20, '\n');
+                       Imprimir(A);
+                       cout<<"PLAYER 1 WINS!!"<<endl;
+                       cout<<"GAME OVER"<<endl;
+                       break;
+                   }
                
-           }
+            
+             
+                   
+                   int (colummna2);
+                   cout<<"CHOOSE A COLUMN"<<endl;
+                   cout<<"PLAYER 2 = ";
+                   cin>>colummna2;
+                   Player2(A, colummna2-1);
+                   cout << string(20, '\n');
+                   Imprimir(A);
+               
+                   
+                  int win2=Comprobacion(A,'1');
+                    if(win2==0){
+                       //Keep running
+                    }
+                    else{
+                        cout << string(20, '\n');
+                        Imprimir(A);
+                        cout<<"PLAYER 2 WINS!!"<<endl;
+                        cout<<"GAME OVER"<<endl;
+                        break;
+                    }
+               }
+              
+               
+        
     
 }
