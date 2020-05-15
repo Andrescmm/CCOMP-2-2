@@ -9,6 +9,7 @@ void swap(char *a, char *b){
     *b=copia;
 }
 
+
 void Player1(char A[][7],int colum){
     char *inicio=*A;
     char ficha1='0';
@@ -49,14 +50,29 @@ void Player2(char A[][7],int colum){
     
     
     
-void Comprobacion(char A[][7]){}
+void Comprobacion(char A[][7]){
+    
+    //Recorrido filas
+    for(char  i=0;i<6;i++){
+           for(char *i=*A;i<(*A)+7;i++){
+               
+       }
+       A++;
+      }
+    
+    
+    
+    
+    
+    
+}
     
     
 
 
 
 void Imprimir(char A[][7]){
-    for(char  i=0;i<7;i++){
+    for(char  i=0;i<6;i++){
         for(char *i=*A;i<(*A)+7;i++){
             cout<<*i<<"  ";
     }
@@ -64,6 +80,7 @@ void Imprimir(char A[][7]){
     A++;
    }
 }
+
 
 
 
