@@ -48,7 +48,17 @@ void Player2(char A[][7],int colum){
     }
 }
     
-    
+int MatrizLlena(char A[][7]){
+    for(int i=1; i<=6;i++){
+      for(char *i = *A;i<(*A)+7;i++){
+          if(*i=='X'){
+              return 1;
+          }
+      }
+      A++;
+    }
+    return 0;
+}
     
 int Comprobacion(char A[][7],char pieza){
     
@@ -134,8 +144,6 @@ int main (){
            while(juego){
                
     
-              
-                   
                    int colummna1;
                    cout<<"CHOOSE A COLUMN"<<endl;
                    cout<<"PLAYER 1 = ";
@@ -180,8 +188,4 @@ int main (){
                         break;
                     }
                }
-              
-               
-        
-    
 }
